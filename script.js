@@ -1,4 +1,4 @@
-$("button").click(function(){
+$("#newquote").click(function(){
   $.getJSON("http://quotesondesign.com/wp-json/posts?filter[orderby]=rand&filter[posts_per_page]=30&jsonp=mycallback", function(a) {
     $(".quotearea").empty();
     $(".quotearea").addClass("border");

@@ -8,6 +8,12 @@ button {
   border-radius: 20px;
   font-size: 1.1em;
   padding: 1em;
+  margin-right: 1em;
+  margin-left: 1em;
+}
+
+.fa-twitter {
+  color: #55acee;
 }
 
 .container {
@@ -18,7 +24,7 @@ button {
 
 .quotearea {
   width: 90%;
-  margin: 20px auto 0;
+  margin: 20px auto 20px;
 }
 
 .border {

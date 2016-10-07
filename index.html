@@ -2,6 +2,7 @@
 <html>
 <head>
   <title>Random Quote Generator</title>
+  <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-T8Gy5hrqNKT+hzMclPo118YTQO6cYprQmhrYwIiQ/3axmI1hQomh7Ud2hPOy8SP1" crossorigin="anonymous">
   <link rel="stylesheet" type="text/css" href="stylesheet.css">
 </head>
 
@@ -9,13 +10,16 @@
   <div class="container">
     <h1>Random Quotes Rewritten</h1>
     <p>Would you like a random sentence to send to someone or incorporate in your project? Press the button below!</p>
-    <button>New quote</button>
     <div class="quotearea">
 
     </div>
+    <button id="newquote">New quote</button>
+    <button onclick="location.href='https://twitter.com/intent/tweet'"><i class="fa fa-twitter" aria-hidden="true"></i>
+       Quote tweet</button>
   </div>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+
 <script src="script.js"></script>
 </body>
 
