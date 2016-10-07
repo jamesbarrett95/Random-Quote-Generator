@@ -1,13 +1,8 @@
-var words = ["bunch", "of", "random", "words", "javascript",
-            "william", "dark", "light", "blue", "green"];
-
-
 $("button").click(function(){
-var stringArray = [];
-$(".quotearea").addClass("border");
-  for(i = 0; i < words.length; i++) {
-    stringArray.push(words[Math.floor(Math.random()*words.length)]);
-  }
-  var string = stringArray.join(' ');
-  $('.quotearea').html('<p>' + string + '</p>');
+  $.getJSON("http://quotesondesign.com/wp-json/posts?filter[orderby]=rand&filter[posts_per_page]=30&jsonp=mycallback", function(a) {
+    $(".quotearea").empty();
+    $(".quotearea").addClass("border");
+    var quote = a[Math.floor(Math.random()*a.length)];
+    $(".quotearea").append(quote.content + " " + quote.title);
+  });
 });
