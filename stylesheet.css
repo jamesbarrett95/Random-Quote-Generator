@@ -12,6 +12,10 @@ button {
   margin-left: 1em;
 }
 
+.tweetquote {
+  display: none;
+}
+
 .fa-twitter {
   color: #55acee;
 }
