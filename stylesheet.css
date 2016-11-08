@@ -8,8 +8,11 @@ button {
   border-radius: 20px;
   font-size: 1.1em;
   padding: 1em;
-  margin-right: 1em;
-  margin-left: 1em;
+  margin: .5em 1em .5em 1em;
+}
+
+button:focus {
+  outline: 0;
 }
 
 .tweetquote {

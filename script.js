@@ -22,7 +22,7 @@ function quoteContentLength(quoteContent) {
 
 $("#newquote").click(function(){
   getRandomColor();
-  $.getJSON("https://quotesondesign.com/wp-json/posts?filter[orderby]=rand&filter[posts_per_page]=30&jsonp=mycallback", function(data) {
+  $.getJSON("https://crossorigin.me/https://quotesondesign.com/wp-json/posts?filter[orderby]=rand&filter[posts_per_page]=30&jsonp=mycallback", function(data) {
     $(".quotearea").empty().addClass("border");
     quote = data[Math.floor(Math.random()*data.length)];
     quoteContent = extractContent(quote.content)
