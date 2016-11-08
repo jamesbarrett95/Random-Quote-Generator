@@ -1,6 +1,5 @@
-var quoteObj;
-var quoteContent;
-var quoteTitle;
+// Global Variables
+var quoteContent, quoteTitle, tweet;
 
 function getRandomColor() {
   var letters = 'BCDEF'.split('');
@@ -11,14 +10,19 @@ function getRandomColor() {
   document.body.style.backgroundColor = color;
 }
 
+function extractContent(string) {
+  var span = $('<span/>');
+  tweet = span.html(string).text().replace(/[\u2018\u2019]/g, "'").replace(/[\u201C\u201D]/g, '"');
+  return tweet;
+}
+
 $("#newquote").click(function(){
   getRandomColor();
-  $.getJSON("http://quotesondesign.com/wp-json/posts?filter[orderby]=rand&filter[posts_per_page]=30&jsonp=mycallback", function(a) {
-    $(".quotearea").empty();
-    $(".quotearea").addClass("border");
-    quote = a[Math.floor(Math.random()*a.length)];
-    quoteContent = quote.content.replace(/(<p[^>]+?>|<p>|<\/p>)/img, "").replace(/“/g, "\'").replace(/”/g, "\'").replace(/‘/g, "\'").replace(/’/g, "\'");
-    console.log(quoteContent);
+  $.getJSON("https://quotesondesign.com/wp-json/posts?filter[orderby]=rand&filter[posts_per_page]=30&jsonp=mycallback", function(data) {
+    $(".quotearea").empty().addClass("border");
+    quote = data[Math.floor(Math.random()*data.length)];
+    quoteContent = quote.content
+    extractContent(quoteContent);
     quoteTitle = quote.title;
     $(".quotearea").append(quoteContent + " " + quoteTitle);
     $('.tweetquote:hidden').show();
@@ -26,5 +30,5 @@ $("#newquote").click(function(){
 });
 
 $('.tweetquote').click(function() {
-  window.open('https://www.twitter.com/intent/tweet?text=' + quoteContent + quoteTitle);
+  window.open('https://www.twitter.com/intent/tweet?text=' + tweet + quoteTitle);
 });
