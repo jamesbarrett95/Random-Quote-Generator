@@ -4,18 +4,25 @@ body {
 }
 
 button {
-  box-shadow: 5px 5px 5px #888888;
+  background: none;
   border-radius: 20px;
   font-size: 1.1em;
   padding: 1em;
   margin: .5em 1em .5em 1em;
+  border-color: #000;
+}
+
+button:hover {
+  background: rgba(0, 0, 0, 0.6);
+  color: #ffffff;
+  cursor: pointer;
 }
 
 button:focus {
   outline: 0;
 }
 
-.tweetquote {
+.tweet {
   display: none;
 }
 
