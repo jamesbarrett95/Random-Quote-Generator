@@ -14,9 +14,11 @@ function getRandomBackgroundColor() {
     document.body.style.backgroundColor = color;
 }
 
-// Strip HMTL <p> tags from the API 
-function sanitizeString(str) {
-    return str.replace(/<(?:.|\n)*?>/gm, '');
+// jQuery hack to remove <p> tags and convert HTML entities to usable characters
+function sanitizeString(string) {
+    var span = $('<span/>');
+    string = span.html(string).text().replace(/[\u2018\u2019]/g, "'").replace(/[\u201C\u201D]/g, '"');
+    return string;
 }
 
 // Tweet the quote!
@@ -27,10 +29,9 @@ function tweetQuote() {
 async function getQuote() {
 
     getRandomBackgroundColor();
-    const response = await fetch('http://quotesondesign.com/wp-json/posts?filter[orderby]=rand&filter[posts_per_page]=1');
+    const response = await fetch('https://quotesondesign.com/wp-json/posts?filter[orderby]=rand&filter[posts_per_page]=1');
     const data = await response.json();
     content = data["0"].content;
-    console.log(content)
     title = data["0"].title;
 
     quoteArea.classList.add('border');
